@@ -20,9 +20,9 @@ type ChartData = {
   datasets: {
     label: string;
     data: number[];
-    backgroundColor: string[];
+    backgroundColor: any[];
     borderColor: any;
-    hoverBackgroundColor: string[]
+    hoverBackgroundColor: any[];
     borderWidth: number;
     neutralColor: any;
     barColor : any;
