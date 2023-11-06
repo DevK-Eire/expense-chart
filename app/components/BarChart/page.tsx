@@ -20,9 +20,9 @@ type ChartData = {
   datasets: {
     label: string;
     data: number[];
-    backgroundColor: string | string[];
+    backgroundColor: string[];
     borderColor: any;
-    hoverBackgroundColor: string | string[]
+    hoverBackgroundColor: string[]
     borderWidth: number;
     neutralColor: any;
     barColor : any;
@@ -150,9 +150,7 @@ const BarChart:  React.FC = () => {
   return (
     <>
     
-    <div  className='bg-white w-[500px] flex flex-col p-8 rounded-2xl'>
-        
-        
+    <div  className='bg-white w-[500px] flex flex-col p-8 rounded-2xl'>     
     <h1 className='font-bold text-2xl mb-8 text-left'>Spending - Last 7 days</h1>
       <Bar  data={chartData} options={chartOptions} />
       <div className="flex-grow border-t border-neutral-cream my-6"></div>
