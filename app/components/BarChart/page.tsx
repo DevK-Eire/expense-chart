@@ -1,5 +1,4 @@
 'use client'
-import colors from './theme';
 import { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import {
@@ -17,10 +16,10 @@ import jsonData from '../../../data.json'; // Make sure the path is correct
 ChartJS.register(BarElement, LinearScale, CategoryScale, Tooltip, Title, Legend);
 
 type ChartData = {
-  labels: any[];
+  labels: string[];
   datasets: {
-    label: any;
-    data: any[];
+    label: string;
+    data: number[];
     backgroundColor: any[];
     borderColor: any;
     hoverBackgroundColor: any[];
@@ -35,7 +34,7 @@ type ChartData = {
 };
 
 type DailyAmount = {
-  day: any;
+  day: string;
   amount: number;
 };
 
@@ -59,15 +58,16 @@ const BarChart:  React.FC = () => {
     const labels = data.map(d => d.day);
   
     // Use labels to map background and hover colors
-    const backgroundColor = labels.map(label => {
+    const backgroundColor: (string | undefined)[] = labels.map(label => {
       const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
-      return label.toLowerCase() === today ? colors.cyan : colors.softRed
-    }) 
-  
-    const hoverBackgroundColor = labels.map(label => {
-        const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
-        return label.toLowerCase() === today ? 'hsla(186, 34%, 60%, .8)' : 'hsla(10, 79%, 65%, .8)';
-    }) 
+      return label.toLowerCase() === today ? activeBarColor : barColor;
+    });
+    
+    const hoverBackgroundColor: (string | undefined)[] = labels.map(label => {
+      const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
+      return label.toLowerCase() === today ? activeBarHovered : barHovered;
+    });
+
     // Now we can use the variables to set the chart data
     const chartData: ChartData = {
         labels: labels,
@@ -75,8 +75,8 @@ const BarChart:  React.FC = () => {
             {
                 label: 'Daily Amount',
                 data: data.map(d => d.amount),
-                backgroundColor: backgroundColor,
-                hoverBackgroundColor: hoverBackgroundColor,
+                backgroundColor: backgroundColor as any[],
+                hoverBackgroundColor: hoverBackgroundColor as any[],
                 borderColor: 'transparent',
                 borderRadius: 5,
                 borderWidth: 1,
