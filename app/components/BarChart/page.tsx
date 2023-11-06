@@ -38,11 +38,15 @@ type DailyAmount = {
   amount: number;
 };
 
-const barColor = 'hsl(10, 79%, 65%)' 
-const barHovered = 'hsla(10, 79%, 65%, .8)'
-const activeBarHovered = 'hsla(186, 34%, 60%, .8)'
-const activeBarColor = 'hsl(186, 34%, 60%)'
-const neutralColor = 'hsl(28,10%,53%)'
+type CustomColor = `hsl(${number}, ${number}%, ${number}%)` | `hsla(${number}, ${number}%, ${number}%, ${number})` | `hsla(${number}, ${number}%, ${number}%, ${number}.${number})`;
+
+// Then define your colors
+const barColor: CustomColor = 'hsl(10, 79%, 65%)';
+const barHovered: CustomColor = 'hsla(10, 79%, 65%, 0.8)';
+const activeBarHovered: CustomColor = 'hsla(186, 34%, 60%, 0.8)';
+const activeBarColor: CustomColor = 'hsl(186, 34%, 60%)';
+const neutralColor: CustomColor = 'hsl(28, 10%, 53%)';
+
 
 const BarChart:  React.FC = () => {
   const [chartData, setChartData] = useState<ChartData>({
@@ -75,8 +79,8 @@ const BarChart:  React.FC = () => {
             {
                 label: 'Daily Amount',
                 data: data.map(d => d.amount),
-                backgroundColor: 'blue',
-                hoverBackgroundColor: 'red',
+                backgroundColor: backgroundColor,
+                hoverBackgroundColor: hoverBackgroundColor,
                 borderColor: 'transparent',
                 borderRadius: 5,
                 borderWidth: 1,
