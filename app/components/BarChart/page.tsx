@@ -1,4 +1,5 @@
 'use client'
+import colors from './theme';
 import { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import {
@@ -60,7 +61,7 @@ const BarChart:  React.FC = () => {
     // Use labels to map background and hover colors
     const backgroundColor = labels.map(label => {
       const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
-      return label.toLowerCase() === today ? 'hsl(186, 34%, 60%)' : 'hsl(10, 79%, 65%)';
+      return label.toLowerCase() === today ? colors.cyan : colors.softRed
     }) 
   
     const hoverBackgroundColor = labels.map(label => {
@@ -74,8 +75,8 @@ const BarChart:  React.FC = () => {
             {
                 label: 'Daily Amount',
                 data: data.map(d => d.amount),
-                // backgroundColor: backgroundColor,
-                // hoverBackgroundColor: hoverBackgroundColor,
+                backgroundColor: backgroundColor,
+                hoverBackgroundColor: hoverBackgroundColor,
                 borderColor: 'transparent',
                 borderRadius: 5,
                 borderWidth: 1,
