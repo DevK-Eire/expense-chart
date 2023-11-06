@@ -20,15 +20,15 @@ type ChartData = {
   datasets: {
     label: string;
     data: number[];
-    backgroundColor: string;
-    borderColor: string;
+    backgroundColor: any;
+    borderColor: any;
     hoverBackgroundColor: string;
     borderWidth: number;
-    neutralColor: string;
-    barColor : string;
-    barHovered : string;
-    activeBarColor : string;
-    activeBarHovered : string;
+    neutralColor: any;
+    barColor : any;
+    barHovered : any;
+    activeBarColor : any;
+    activeBarHovered : any;
     borderRadius: number;
   }[];
 };
