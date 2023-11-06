@@ -17,10 +17,10 @@ import jsonData from '../../../data.json'; // Make sure the path is correct
 ChartJS.register(BarElement, LinearScale, CategoryScale, Tooltip, Title, Legend);
 
 type ChartData = {
-  labels: string[];
+  labels: any[];
   datasets: {
-    label: string;
-    data: number[];
+    label: any;
+    data: any[];
     backgroundColor: any[];
     borderColor: any;
     hoverBackgroundColor: any[];
