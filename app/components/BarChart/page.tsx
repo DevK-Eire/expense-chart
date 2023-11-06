@@ -38,7 +38,7 @@ type DailyAmount = {
   amount: number;
 };
 
-const barColor = 'hsl(10, 79%, 65%)'
+const barColor = 'hsl(10, 79%, 65%)' 
 const barHovered = 'hsla(10, 79%, 65%, .8)'
 const activeBarHovered = 'hsla(186, 34%, 60%, .8)'
 const activeBarColor = 'hsl(186, 34%, 60%)'
