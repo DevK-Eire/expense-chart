@@ -35,7 +35,7 @@ type ChartData = {
 };
 
 type DailyAmount = {
-  day: string;
+  day: any;
   amount: number;
 };
 
