@@ -58,15 +58,15 @@ const BarChart:  React.FC = () => {
     const labels = data.map(d => d.day);
   
     // Use labels to map background and hover colors
-    const backgroundColor: any = labels.map(label => {
+    const backgroundColor = labels.map(label => {
       const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
       return label.toLowerCase() === today ? activeBarColor : barColor;
-    });
+    }) as any; // Type assertion here
     
-    const hoverBackgroundColor: any = labels.map(label => {
+    const hoverBackgroundColor = labels.map(label => {
       const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
       return label.toLowerCase() === today ? activeBarHovered : barHovered;
-    });
+    }) as any;
 
     // Now we can use the variables to set the chart data
     const chartData: ChartData = {
