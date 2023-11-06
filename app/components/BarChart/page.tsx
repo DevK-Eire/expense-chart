@@ -75,8 +75,8 @@ const BarChart:  React.FC = () => {
             {
                 label: 'Daily Amount',
                 data: data.map(d => d.amount),
-                backgroundColor: backgroundColor as any[],
-                hoverBackgroundColor: hoverBackgroundColor as any[],
+                backgroundColor: 'blue',
+                hoverBackgroundColor: 'red',
                 borderColor: 'transparent',
                 borderRadius: 5,
                 borderWidth: 1,
