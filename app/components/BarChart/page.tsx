@@ -20,9 +20,9 @@ type ChartData = {
   datasets: {
     label: string;
     data: number[];
-    backgroundColor: any[];
+    backgroundColor: any;
     borderColor: any;
-    hoverBackgroundColor: any[];
+    hoverBackgroundColor: any;
     borderWidth: number;
     neutralColor: any;
     barColor : any;
@@ -58,12 +58,12 @@ const BarChart:  React.FC = () => {
     const labels = data.map(d => d.day);
   
     // Use labels to map background and hover colors
-    const backgroundColor: (string | undefined)[] = labels.map(label => {
+    const backgroundColor: any = labels.map(label => {
       const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
       return label.toLowerCase() === today ? activeBarColor : barColor;
     });
     
-    const hoverBackgroundColor: (string | undefined)[] = labels.map(label => {
+    const hoverBackgroundColor: any = labels.map(label => {
       const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
       return label.toLowerCase() === today ? activeBarHovered : barHovered;
     });
