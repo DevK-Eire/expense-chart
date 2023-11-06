@@ -24,6 +24,12 @@ type ChartData = {
     borderColor: string;
     hoverBackgroundColor: string;
     borderWidth: number;
+    neutralColor: string;
+    barColor : string;
+    barHovered : string;
+    activeBarColor : string;
+    activeBarHovered : string;
+    borderRadius: number;
   }[];
 };
 
