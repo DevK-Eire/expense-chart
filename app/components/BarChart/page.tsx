@@ -36,6 +36,7 @@ const barColor = 'hsl(10, 79%, 65%)'
 const barHovered = 'hsla(10, 79%, 65%, .8)'
 const activeBarHovered = 'hsla(186, 34%, 60%, .8)'
 const activeBarColor = 'hsl(186, 34%, 60%)'
+const neutralColor = 'hsl(28,10%,53%)'
 
 const BarChart:  React.FC = () => {
   const [chartData, setChartData] = useState<ChartData>({
@@ -113,7 +114,7 @@ const BarChart:  React.FC = () => {
         x: {
           display: true,
           ticks: {
-            color: 'hsl(28,10%,53%)'
+            color: neutralColor
           },
           grid: {
             display: false,
