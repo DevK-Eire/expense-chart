@@ -22,7 +22,7 @@ type ChartData = {
     data: number[];
     backgroundColor: any;
     borderColor: any;
-    hoverBackgroundColor: string;
+    hoverBackgroundColor: any;
     borderWidth: number;
     neutralColor: any;
     barColor : any;
@@ -64,26 +64,31 @@ const BarChart:  React.FC = () => {
     });
   
     const hoverBackgroundColor = labels.map(label => {
-      const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
-      return label.toLowerCase() === today ? activeBarHovered : barHovered;
+        const today = new Date().toLocaleString('en-US', { weekday: 'short' }).toLowerCase();
+        return label.toLowerCase() === today ? activeBarHovered : barHovered;
     });
-  
+
     // Now we can use the variables to set the chart data
     const chartData: ChartData = {
-      labels: labels,
-      datasets: [
-        {
-          label: 'Daily Amount',
-          data: data.map(d => d.amount),
-          backgroundColor: backgroundColor,
-          hoverBackgroundColor: hoverBackgroundColor,
-          borderColor: 'transparent',
-          borderRadius: 5,
-          borderWidth: 1,
-        },
-      ],
+        labels: labels,
+        datasets: [
+            {
+                label: 'Daily Amount',
+                data: data.map(d => d.amount),
+                backgroundColor: backgroundColor,
+                hoverBackgroundColor: hoverBackgroundColor,
+                borderColor: 'transparent',
+                borderRadius: 5,
+                borderWidth: 1,
+                neutralColor: neutralColor,
+                barColor: barColor,
+                barHovered: barHovered,
+                activeBarColor: activeBarColor,
+                activeBarHovered: activeBarHovered
+            },
+        ],
     };
-  
+
     setChartData(chartData);
   }, []);
   
