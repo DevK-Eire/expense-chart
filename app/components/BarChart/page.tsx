@@ -105,14 +105,13 @@ const BarChart:  React.FC = () => {
           },
         tooltip: {
           enabled: true,
-          backgroundColor: 'black',
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
           padding: 10,
           caretSize: 0,
           usePointStyle: true,
           displayColors: false,
-          yAlign: 'bottom',
-          xAlign: 'center',
-          position: 'nearest',
+          yAlign: 'bottom' as 'bottom', // Corrected to a predefined value
+          xAlign: 'center' as 'center', // Corrected to a predefined value
           footerMarginTop: 42,
           callbacks: {
             label: function (context) {
