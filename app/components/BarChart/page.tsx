@@ -105,7 +105,7 @@ const BarChart:  React.FC = () => {
           },
         tooltip: {
           enabled: true,
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          backgroundColor: 'black' as 'black', // Corrected to a predefined value
           padding: 10,
           caretSize: 0,
           usePointStyle: true,
